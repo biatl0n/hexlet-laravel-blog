@@ -1,2 +1,5 @@
-<h1>О блоге</h1>
-<p>Эксперименты с Laravel на Хекслете</p>
+@extends('layouts.app')
+@section('title', 'О блоге')
+
+@section('header', 'О блоге')
+@section('content', 'Эксперименты с Laravel на Хекслете')
