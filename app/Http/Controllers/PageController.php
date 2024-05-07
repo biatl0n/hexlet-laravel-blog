@@ -11,9 +11,8 @@ class PageController extends Controller
         return view('page.about');
     }
 
-    public function articles()
+    public function index()
     {
-        $articles = \App\Models\Article::all();
-        return view('page.articles', ['articles' => $articles]);
+        return view('index');
     }
 }
