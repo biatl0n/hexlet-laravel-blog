@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+@if(session()->exists('flash-article.create'))
+    <div class="alert alert-success" role="alert">
+        {{ session('flash-article.create') }}
+    </div>
+@endif
+
 @section('content')
     <h1>Список статей</h1>
         <table class="table table-bordered mt-5 mb-5">
