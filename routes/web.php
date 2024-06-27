@@ -31,3 +31,11 @@ Route::post('articles', [ArticleController::class, 'store'])
 
 Route::get('articles/{id}', [ArticleController::class, 'show'])
     ->name('articles.show');
+
+Route::patch('articles/{id}', [ArticleController::class, 'update'])
+    ->name('articles.update');
+
+Route::get('articles/{id}/edit', [ArticleController::class, 'edit'])
+    ->name('articles.edit');
+
+

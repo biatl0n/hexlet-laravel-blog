@@ -39,4 +39,25 @@ class ArticleController extends Controller
         $article = Article::findOrFail($id);
         return view('article.show', compact('article'));
     }
+
+    public function edit($id)
+    {
+        $article = Article::findOrFail($id);
+        return view('article.edit', compact('article'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $article = Article::findOrFail($id);
+        $data = $this->validate($request, [
+            'name' => 'required|unique:articles,name,' . $article->id,
+            'body' => 'required|min:100',
+        ]);
+
+        $article->fill($data);
+        $article->save();
+        session()->flash('flash-article.update', "Статья обновлена");
+        return redirect()
+            ->route('articles.index');
+    }
 }
