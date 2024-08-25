@@ -23,7 +23,7 @@ class ArticleController extends Controller
     {
         $data = $this->validate($request, [
             'name' => 'required|unique:articles',
-            'body' => 'required|min:1000',
+            'body' => 'required|min:100',
         ]);
 
         $article = new Article();
@@ -59,5 +59,15 @@ class ArticleController extends Controller
         session()->flash('flash-article.update', "Статья обновлена");
         return redirect()
             ->route('articles.index');
+    }
+
+    public function destroy($id)
+    {
+        $article = Article::find($id);
+        if ($article) {
+            $article->delete();
+            session()->flash('flash-article.destroy', "Статья удалена");
+        }
+        return redirect()->route('articles.index');
     }
 }

@@ -6,7 +6,7 @@
     <title>Hexlet Blog - @yield('title')</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="csrf-param" content="_token" />
-    @vite('resources/js/app.js')
+    @vite(['resources/js/app.js'])
 </head>
 <body>
 <div class="container mt-4">
