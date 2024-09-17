@@ -33,7 +33,7 @@ class ArticleController extends Controller
     {
         $data = $this->validate($request, [
             'name' => 'required|unique:articles',
-            'body' => 'required|min:100',
+            'body' => 'required|min:10',
         ]);
 
         $article = new Article();
@@ -68,7 +68,7 @@ class ArticleController extends Controller
     {
         $data = $this->validate($request, [
             'name' => 'required|unique:articles,name,' . $article->id,
-            'body' => 'required|min:100',
+            'body' => 'required|min:10',
         ]);
 
         $article->fill($data);
