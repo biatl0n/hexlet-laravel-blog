@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\ArticleCommentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,4 @@ Route::get('/', [PageController::class, 'index']);
 Route::get('about', [PageController::class, 'about'])
     ->name('pages.about');
 Route::resource('articles', ArticleController::class);
+Route::resource('articles.comments', ArticleCommentController::class);
